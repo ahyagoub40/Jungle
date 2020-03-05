@@ -8,9 +8,8 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect_to '/', notice: 'Account created successfully'
     else
-      # redirect_to '/signup'
-      flash[:error] = 'An error occured!'
-      render 'new'
+      redirect_to '/signup'
+    end
   end
   private
     def user_params
