@@ -40,4 +40,7 @@ RSpec.describe User, type: :model do
       expect(@product.errors.full_messages).to include("password_confirmation can't be blank")
     end
   end
+  # describe '.authenticate_with_credentials' do
+  #    examples for this class method here
+  # end
 end
