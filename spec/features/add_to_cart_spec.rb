@@ -16,12 +16,13 @@ RSpec.feature "ProductDetails", type: :feature, js: true do
   end
   scenario "Navigate from the home page to the product detail page" do
     visit root_path
-    click_on @product[:name]
-    visit "/products/#{@product[:id]}"
+    expect(page).to have_content("My Cart (0)")
+    save_screenshot
+    click_button("Add", :match => :prefer_exact)
     # commented out b/c it's for debugging only
     # save_and_open_screenshot
     
     save_screenshot
-    expect(page).to have_css 'section.products-show'
+    expect(page).to have_content("My Cart (1)")
   end
 end
